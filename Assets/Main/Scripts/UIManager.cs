@@ -1,10 +1,12 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 
 namespace GiantMonkey
 {
     public class UIManager : MonoBehaviour
     {
+        [SerializeField] private Text titleLabel = null;
         [SerializeField] private TableCell headerPrefab = null;
         [SerializeField] private TableCell dataPrefab = null;
         [SerializeField] private Transform tableSpace = null;
@@ -24,6 +26,7 @@ namespace GiantMonkey
                 return;
             }
 
+            titleLabel.text = table.Title;
             SpawnCells( table.ColumnHeaders , headerPrefab);
             SpawnCells( table.Data.ToArray() , dataPrefab , table.ColumnHeaders.Length );
             
@@ -60,7 +63,7 @@ namespace GiantMonkey
 
         private bool IsTableDataValid( Table table )
         {
-            return table.Data.Count % table.ColumnHeaders.Length != 0;
+            return table.Data.Count % table.ColumnHeaders.Length == 0;
         }
 
 
@@ -69,7 +72,7 @@ namespace GiantMonkey
             int index = 0;
 
             headerSize = Mathf.Min(headerSize , values.Length);
-            Debug.Log(headerSize);
+
             while (index < values.Length)
             {
                 Transform parent = CreateRow().transform;                        

@@ -1,5 +1,4 @@
-﻿
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections.Generic;
 using SimpleJSON;
 using System.IO;
@@ -18,7 +17,7 @@ namespace GiantMonkey
 
         public void DeserializeJsonFile()
         {
-            string path = Path.Combine(Application.streamingAssetsPath, "JsonChanllenge.json");
+            string path = Path.Combine( ApplicationConst.JsonFilePath );
             StreamReader reader = new StreamReader(path);
             string json = StringToJson(reader.ReadToEnd());
             reader.Close();
@@ -42,8 +41,9 @@ namespace GiantMonkey
 
         public Table(string json)
         {
-            JSONNode rootNode = JSON.Parse(json);            
-            JSONNode ColumnHeadersNode = rootNode["ColumnHeaders"];
+            JSONNode rootNode = JSON.Parse(json);
+            Title = rootNode["Title"];
+            JSONNode ColumnHeadersNode = rootNode["ColumnHeaders"];            
             ColumnHeaders = new string[ColumnHeadersNode.Count];
 
             for (int n = 0; n < ColumnHeadersNode.Count; n++)

@@ -11,7 +11,7 @@ namespace GiantMonkey
         [SerializeField] private UnityEvent onFileChanged = null;
 
         private DateTime lastFileWriteDate;
-        private const float checkRate = 1.0f;
+        private const float checkRate = 0.5f;
 
         private void Start()
         {
@@ -23,7 +23,11 @@ namespace GiantMonkey
         {
             while (true)
             {
-                FileHasChanged( Path.Combine(Application.streamingAssetsPath, "JsonChanllenge.json") );
+                if (FileHasChanged(ApplicationConst.JsonFilePath))
+                {
+                    lastFileWriteDate = File.GetLastWriteTime( ApplicationConst.JsonFilePath ); ;
+                    onFileChanged.Invoke();
+                }
                 yield return new WaitForSeconds( checkRate );
             }
         }
@@ -32,14 +36,7 @@ namespace GiantMonkey
         {
             DateTime currentWriteTime = File.GetLastWriteTime(path);
             int comp = DateTime.Compare(currentWriteTime, lastFileWriteDate);
-            if (comp > 0)
-            {
-                lastFileWriteDate = currentWriteTime;
-                onFileChanged.Invoke();
-                
-            }
-            
-            return false;
+            return comp > 0;
         }
 
 

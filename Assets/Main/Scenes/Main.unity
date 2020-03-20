@@ -495,6 +495,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e52af2f8efadc4e4d8a6f560d066bfcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  titleLabel: {fileID: 860592053}
   headerPrefab: {fileID: 3327309999816475035, guid: 9a539f520a620ac45baa680ce6245dd7,
     type: 3}
   dataPrefab: {fileID: 7357117507920138583, guid: 6fda500b17c59a44bade7640ea78fda1,
@@ -536,7 +537,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -50.8}
+  m_AnchoredPosition: {x: 0, y: -50.799805}
   m_SizeDelta: {x: 0, y: -101.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1359126664

@@ -1,39 +1,44 @@
 {
-  "Title": "Team Members",
+  "Title": "James Company",
   "ColumnHeaders" :
   [
     "ID",
-    "Name",
+    "MyName",
     "Role",
     "Nickname"
   ],
-  "Data" :
-  [
-    {
-        "ID" : "001",
-        "Name" : "James Roman",
-        "Role" : "Engineer",
-        "Nickname" : "KillerJo",
-    },
-    {
-        "ID" : "023",
-        "Name" : "Claire Dawn",
-        "Role" : "Engineer",
-        "Nickname" : "Claw",
-    },
-    {
-        "ID" : "012",
-        "Name" : "Paul Beef",
-        "Role" : "Designer",
-        "Nickname" : "BeefyPaul",
-    },
-{
-        "ID" : "012",
-        "Name" : "Paul Beef",
-        "Role" : "Designer",
-        "Nickname" : "BeefyPaul",
-    },
+    "Data": [
+        {
+            "ID": "001",
+            "Name": "James Roman",
+            "Role": "Engineer",
+            "Nickname": "KillerJo"
+        },
+        {
+            "ID": "023",
+            "Name": "Claire Dawn",
+            "Role": "Engineer",
+            "Nickname": "Claw"
+        },
+        {
+            "ID": "012",
+            "Name": "Paul Beef",
+            "Role": "Designer",
+            "Nickname": "BeefyPaul"
+        },
+        {
+            "ID": "012",
+            "Name": "Paul Beef",
+            "Role": "Designer",
+            "Nickname": "BeefyPaul"
+        },
+        {
+            "ID": "0",
+            "Name": "Paul Beef",
+            "Role": "Designer",
+            "Nickname": "BeefyPaul"
+        }
 
-   
-  ]
+
+    ]
 }
