@@ -1,16 +1,15 @@
 {
-  "Title": "James Company",
-  "ColumnHeaders" :
-  [
-    "ID",
-    "MyName",
-    "Role",
-    "Nickname"
-  ],
+    "Title": "Team Members",
+    "ColumnHeaders": [
+        "ID",
+        "Name",
+        "Role",
+        "Nickname"
+    ],
     "Data": [
         {
             "ID": "001",
-            "Name": "James Roman",
+            "Name": "John Doe",
             "Role": "Engineer",
             "Nickname": "KillerJo"
         },
@@ -27,18 +26,10 @@
             "Nickname": "BeefyPaul"
         },
         {
-            "ID": "012",
-            "Name": "Paul Beef",
-            "Role": "Designer",
-            "Nickname": "BeefyPaul"
-        },
-        {
-            "ID": "0",
-            "Name": "Paul Beef",
-            "Role": "Designer",
-            "Nickname": "BeefyPaul"
+            "ID": "056",
+            "Name": "Sally Sue",
+            "Role": "Artist",
+            "Nickname": "Sue5555"
         }
-
-
     ]
 }
