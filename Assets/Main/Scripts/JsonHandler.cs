@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using SimpleJSON;
 using System.IO;
+using System;
 
 namespace GiantMonkey
 {
@@ -22,7 +23,22 @@ namespace GiantMonkey
             string json = StringToJson(reader.ReadToEnd());
             reader.Close();
 
-            Table table = new Table(json);
+            JSONNode rootNode = null;
+
+            try
+            {
+                rootNode = JSON.Parse(json);
+            }
+            catch (Exception e)
+            {
+                Debug.LogError(e.Message);
+                return;
+            }
+
+            if (rootNode == null)
+                return;
+
+            Table table = new Table(rootNode);
             UIManager.CreateTable(table);
         }
 
@@ -38,10 +54,10 @@ namespace GiantMonkey
         public string Title { get; set; }
         public string[] ColumnHeaders { get; set; }
         public List<string> Data { get; set; }
-
-        public Table(string json)
+       
+        public Table(JSONNode rootNode)
         {
-            JSONNode rootNode = JSON.Parse(json);
+            
             Title = rootNode["Title"];
             JSONNode ColumnHeadersNode = rootNode["ColumnHeaders"];            
             ColumnHeaders = new string[ColumnHeadersNode.Count];
