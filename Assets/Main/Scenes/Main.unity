@@ -130,6 +130,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 431162150}
+  - component: {fileID: 431162151}
   m_Layer: 0
   m_Name: Code
   m_TagString: Untagged
@@ -152,6 +153,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &431162151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 431162149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48787b0250dc053468a363cfe1d123a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onFileChanged:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 570904513}
+        m_MethodName: DeserializeJsonFile
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &570904511
 GameObject:
   m_ObjectHideFlags: 0
@@ -195,7 +222,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d54e389793074d43b04ae492ebb59bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  json: {fileID: 4900000, guid: ff7aeb1255e5b2d48880eb8d58a7acb5, type: 3}
 --- !u!1 &860592051
 GameObject:
   m_ObjectHideFlags: 0
@@ -432,7 +458,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 25
+  m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -473,7 +499,9 @@ MonoBehaviour:
     type: 3}
   dataPrefab: {fileID: 7357117507920138583, guid: 6fda500b17c59a44bade7640ea78fda1,
     type: 3}
-  headerParent: {fileID: 1359126663}
+  tableSpace: {fileID: 1359126663}
+  rowPrefab: {fileID: 8469086516482427745, guid: 43a37120fa5f4eb43a0816dd6229e2bc,
+    type: 3}
 --- !u!1 &1359126662
 GameObject:
   m_ObjectHideFlags: 0
@@ -486,7 +514,7 @@ GameObject:
   - component: {fileID: 1359126665}
   - component: {fileID: 1359126664}
   m_Layer: 5
-  m_Name: Headers
+  m_Name: TableSpace
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -506,10 +534,10 @@ RectTransform:
   m_Father: {fileID: 1245401242}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -151.59961}
-  m_SizeDelta: {x: 0, y: 100}
+  m_AnchoredPosition: {x: 0, y: -50.8}
+  m_SizeDelta: {x: 0, y: -101.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1359126664
 MonoBehaviour:
@@ -520,18 +548,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 1359126662}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30649d3a9faa99c48a7b1166b86bf2a0, type: 3}
+  m_Script: {fileID: 11500000, guid: 59f8146938fff824cb5fd77236b75775, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 10
-    m_Right: 10
+    m_Left: 0
+    m_Right: 0
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 0
   m_Spacing: 0
   m_ChildForceExpandWidth: 1
-  m_ChildForceExpandHeight: 1
+  m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 1
   m_ChildControlHeight: 0
   m_ChildScaleWidth: 0

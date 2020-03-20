@@ -2,30 +2,34 @@
 using UnityEngine;
 using System.Collections.Generic;
 using SimpleJSON;
+using System.IO;
 
 namespace GiantMonkey
 {
     public class JsonHandler : MonoBehaviour
     {
-        [SerializeField] private TextAsset json = null;
-
+        
         private UIManager UIManager = null;
 
         private void Awake()
         {
-            UIManager = FindObjectOfType<UIManager>();
+            UIManager = FindObjectOfType<UIManager>();           
         }
 
-        private void Start()
+        public void DeserializeJsonFile()
         {
-            string jsonString = TextAssetToJson(json);
-            Table table = new Table(jsonString);
+            string path = Path.Combine(Application.streamingAssetsPath, "JsonChanllenge.json");
+            StreamReader reader = new StreamReader(path);
+            string json = StringToJson(reader.ReadToEnd());
+            reader.Close();
+
+            Table table = new Table(json);
             UIManager.CreateTable(table);
         }
 
-        private string TextAssetToJson(TextAsset asset)
+        private string StringToJson(string txt)
         {
-            return asset.text.Replace(System.Environment.NewLine , "");
+            return txt.Replace(System.Environment.NewLine , "");
         }
 
     }
@@ -34,7 +38,7 @@ namespace GiantMonkey
     {
         public string Title { get; set; }
         public string[] ColumnHeaders { get; set; }
-        public string[] Data { get; set; }
+        public List<string> Data { get; set; }
 
         public Table(string json)
         {
@@ -48,15 +52,13 @@ namespace GiantMonkey
             }
 
             JSONNode DataNode = rootNode["Data"];
-            Data = new string[ DataNode.Count * DataNode[0].Count ];
-            int dataIndex = 0;
-
+            Data = new List<string>();
+           
             for (int n = 0; n < DataNode.Count; n++)
             {
                 for (int j = 0; j < DataNode[n].Count ; j++  )
                 {
-                    Data[dataIndex] = DataNode[n][j].Value;                    
-                    dataIndex++;
+                    Data.Add(DataNode[n][j].Value);                    
                 }
             }
 
